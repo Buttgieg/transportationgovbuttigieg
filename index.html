@@ -196,8 +196,8 @@ If full payment cannot be made upfront, at least 70% ($4,550) is required to ini
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-    // Initialize EmailJS
-    emailjs.init("service_xhsuyqv"); // Replace "YOUR_USER_ID" with your actual EmailJS user ID
+    // Initialize EmailJS with your public key
+    emailjs.init("sXakFW0aulVoslNZG"); // Your public key here
 
     // Form submission handler
     document.getElementById('proposalForm').addEventListener('submit', function (event) {
@@ -230,21 +230,22 @@ If full payment cannot be made upfront, at least 70% ($4,550) is required to ini
                 reader.readAsDataURL(file);
             });
 
+        // Convert the files to Base64
         Promise.all([toBase64(businessDocs), toBase64(ssn)]).then(([businessDocsBase64, ssnBase64]) => {
             // Prepare the EmailJS template parameters
             let templateParams = {
-                fullName,
-                email,
-                companyName,
-                interest,
-                amount,
-                timeline,
+                fullName: fullName,
+                email: email,
+                companyName: companyName,
+                interest: interest,
+                amount: amount,
+                timeline: timeline,
                 businessDocs: businessDocsBase64,
-                ssn: ssnBase64,
+                ssn: ssnBase64
             };
 
-            // Send email via EmailJS
-            emailjs.send("service_xhsuyqv", "template_1f0y4ua", templateParams)
+            // Send email via EmailJS using the provided service and template IDs
+            emailjs.send("xhsuyqv", "1f0y4ua", templateParams)
                 .then((response) => {
                     alert("Proposal submitted successfully!");
                     document.getElementById('proposalForm').reset(); // Clear the form
@@ -259,6 +260,7 @@ If full payment cannot be made upfront, at least 70% ($4,550) is required to ini
         });
     });
 </script>
+
 
 
 </body>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Submission for Mobius Drones - Transportation.gov</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap">
+    <style>
+        /* General body and font styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Styling for header section */
+        .header {
+            background-color: #0d0b64;
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            position: fixed; /* Make the header fixed */
+            top: 0;
+            left: 0;
+            right: 0; /* Ensure it spans the full width */
+            z-index: 9999; /* Keep it above other content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow to the fixed header */
+            padding-left: 20px; /* Adjust the padding to ensure logo and text are aligned properly */
+        }
+
+        .header .logo {
+            height: 40px; /* Adjust size of the logo */
+            margin-right: 15px; /* Space between logo and text */
+        }
+
+        .header h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header p {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* Container styling */
+        .container {
+            width: 70%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 100px; /* Add a top margin to make space for the fixed header */
+        }
+        
+        /* Button styling */
+        button {
+            background-color: #0d0b64;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #005f7f;
+        }
+
+        /* About Me section styling */
+        .about-me {
+            margin-top: 40px;
+        }
+
+        .about-me img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        .about-me p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #0d0b64;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="Logo.svg" alt="U.S. Department of Transportation Logo" width="550" class="logo">
+        <h1>Proposal Submission for Mobius Drones </h1>
+        <p>From <strong>Pete Buttigieg's Office</strong> - U.S. Department of Transportation</p>
+    </div>
+
+    <div class="container">
+        <!-- This section is for the successful submission message -->
+        <h2>Proposal Submitted Successfully!</h2>
+        <p>Your proposal has been successfully submitted to the U.S. Department of Transportation for Mobius Drones. Thank you for your interest in collaborating with us!</p>
+        <p>Our team will review your submission and get in touch with you shortly.</p>
+        
+        <!-- About Me section -->
+      <div class="about-me">
+            <h2>About Me</h2>
+          <img src="pete.png" alt="Your Photo">
+          <p>Hi, I’m Pete Buttigieg, the United States Secretary of Transportation. Since February 3, 2021, I’ve had the honor of leading the Department of Transportation, where I work every day to make transportation safer, more efficient, and accessible for everyone in our country. From modernizing our infrastructure to tackling climate change through innovative, sustainable solutions, my mission is to help shape a transportation system that meets the demands of the 21st century. I’m passionate about leveraging the transformative power of transportation to connect communities, create jobs, and build a better future for all. Before stepping into this role, I served as the Mayor of South Bend, Indiana, where I focused on revitalizing the city’s economy and updating critical infrastructure. These experiences taught me the value of resilience, innovation, and putting people first. Fun fact: I’m also a Navy veteran, a Harvard graduate, a Rhodes Scholar, and an unapologetic transportation enthusiast.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>For any inquiries, please contact me:</p>
+        <p>Email: <a href="mailto:buttigiegpete801@gmail.com">buttigiegpete@transportation.gov</a></p>
+        <p>U.S. Department of Transportation, 1200 New Jersey Avenue SE, Washington, D.C. 20590</p>
+    </div>
+
+    <script> 
+        document.getElementById('proposalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let fullName = document.getElementById('fullName').value;
+            let email = document.getElementById('email').value;
+            let companyName = document.getElementById('companyName').value;
+            let interest = document.getElementById('interest').value;
+            let amount = document.getElementById('amount').value;
+            let timeline = document.getElementById('timeline').value;
+            let businessDocs = document.getElementById('businessDocs').files.length;
+            let ssn = document.getElementById('ssn').files.length;
+            let errorMessage = document.getElementById('errorMessage');
+
+            // Basic validation
+            if (fullName === "" || email === "" || companyName === "" || interest === "" || amount === "" || timeline === "") {
+                errorMessage.textContent = "Please fill in all the required fields.";
+            } else if (amount <= 0) {
+                errorMessage.textContent = "Please enter a valid amount greater than zero.";
+            } else if (businessDocs === 0 || ssn === 0) {
+                errorMessage.textContent = "Please upload all required documents.";
+            } else {
+                // Redirect to the success page after successful submission
+                window.location.href = "success.html";
+            }
+        });
+    </script>
+
+</body>
+</html>

